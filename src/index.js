@@ -17,13 +17,10 @@ client
   .query({
     query: gql`
       {
-       getBooks {
-        title
-      }
-      getAuthors {
-        name
-      }
-    }`
+        getUsers {
+          a
+        }
+      }`
   })
   .then(result => console.log(result));
 // If you want your app to work offline and load faster, you can change
