@@ -5,8 +5,21 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import ApolloClient from 'apollo-boost';
 import { gql } from "apollo-boost";
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
+const theme = createMuiTheme({
+  status: {
+    danger: 'red',
+  },
+});
+
+ReactDOM.render(
+  <ThemeProvider theme={theme}>
+    <App />
+  </ThemeProvider>
+  , document.getElementById('root'));
+
 
 
 const client = new ApolloClient({
