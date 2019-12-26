@@ -25,7 +25,7 @@ let reducer = (state, action) => {
 };
 
 function UserContextProvider(props) {
-  console.log('props', props)
+  
   let [state, dispatch] = React.useReducer(reducer, initialState);
   let value = { state, dispatch };
 

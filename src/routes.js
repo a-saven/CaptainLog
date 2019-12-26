@@ -52,7 +52,6 @@ export default function Auth() {
 function PrivateRoute({ children, ...rest }) {
 
   let { state } = useContext(UserContext);
-
   return (
     <Route
       {...rest}
