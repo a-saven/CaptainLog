@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
 import ApolloClient from 'apollo-boost';
 import { gql } from "apollo-boost";
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-
+import Routes from './routes.js';
+import { UserContextProvider } from './components/userContext';
 
 const theme = createMuiTheme({
   status: {
@@ -14,13 +14,17 @@ const theme = createMuiTheme({
   },
 });
 
-ReactDOM.render(
-  <ThemeProvider theme={theme}>
-    <App />
-  </ThemeProvider>
-  , document.getElementById('root'));
+const App = () => {
+  return (
+  <UserContextProvider>
+    <ThemeProvider theme={theme}>
+     <Routes />
+    </ThemeProvider>
+ </UserContextProvider>
+  )
+}
 
-
+ReactDOM.render(<App />, document.getElementById('root'));
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000/',
