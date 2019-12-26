@@ -19,6 +19,17 @@ client
       {
         getUsers {
           a
+        },
+        getAllUsers {
+          a
+        }
+        getAllPosts {
+          _id
+          text
+          tags
+          createdAt
+          userId
+          index
         }
       }`
   })
