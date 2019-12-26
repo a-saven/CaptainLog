@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Post from './post';
 import Grid from '@material-ui/core/Grid';
 
-const POSTS = gql`
+export const POSTS = gql`
     {
       getAllPosts {
         _id
@@ -19,9 +19,10 @@ const POSTS = gql`
 
 const useStyles = makeStyles(theme => ({
   paper: {
+    maxHeight: '80vh',
     display: 'flex',
     overflow: "auto",
-    flexDirection: 'column',
+    flexDirection: 'column-reverse',
     alignItems: 'center',
     hieght: '100vh'
   },

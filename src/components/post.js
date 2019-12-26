@@ -43,7 +43,7 @@ const Chat = ({params}) => {
             {c.index}
           </div>
           <div>
-            UpdatedAt: <Moment format="D MMM YYYY" unix>{c.createdAt}</Moment> 
+            UpdatedAt: <Moment format="D MMM YYYY" unix>{c.createdAt/1000}</Moment> 
           </div>
         </Grid>
       </Grid>
