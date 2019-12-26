@@ -51,8 +51,6 @@ export default function SignInSide() {
   const classes = useStyles();
   let { state, dispatch } = useContext(UserContext);
   let history = useHistory();
-  console.log('😈',  state);
-  console.log('👺', dispatch)
   const payload = {
     email: 'email@email.com',
     password: 'stronk'

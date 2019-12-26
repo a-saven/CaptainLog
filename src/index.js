@@ -2,49 +2,30 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import ApolloClient from 'apollo-boost';
-import { gql } from "apollo-boost";
 import ThemeProvider from './theme.js';
 import Routes from './routes.js';
 import { UserContextProvider } from './components/userContext';
-
-const App = () => {
-  return (
-  <UserContextProvider>
-    <ThemeProvider>
-     <Routes />
-    </ThemeProvider>
-  </UserContextProvider>
-  )
-}
-
-ReactDOM.render(<App />, document.getElementById('root'));
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from '@apollo/react-hooks';
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000/',
 });
 
-client
-  .query({
-    query: gql`
-      {
-        getUsers {
-          a
-        },
-        getAllUsers {
-          a
-        }
-        getAllPosts {
-          _id
-          text
-          tags
-          createdAt
-          userId
-          index
-        }
-      }`
-  })
-  .then(result => console.log(result));
+const App = () => {
+  return (
+    <ApolloProvider client={client}>
+      <UserContextProvider>
+        <ThemeProvider>
+          <Routes />
+        </ThemeProvider>
+      </UserContextProvider>
+    </ApolloProvider>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById('root'));
+
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA

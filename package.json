@@ -8,8 +8,10 @@
     "@material-ui/icons": "^4.5.1",
     "apollo-boost": "^0.4.4",
     "graphql": "^14.5.8",
+    "moment": "^2.24.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
+    "react-moment": "^0.9.7",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0"
   },

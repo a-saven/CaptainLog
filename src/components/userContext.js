@@ -21,6 +21,8 @@ let reducer = (state, action) => {
       return { ...state, ...action.payload };
     case "logout":
       return { ...state, ...action.payload };
+    default:
+      return state;
   }
 };
 
