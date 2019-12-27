@@ -17,7 +17,7 @@ const ADD_POST = gql`
   }
 `;
 
-export default function SubmitPost({ text }) {
+export default function SubmitPost({ text, clearInput }) {
   const [submitPost, { data }] = useMutation(
     ADD_POST,
     {
@@ -25,19 +25,20 @@ export default function SubmitPost({ text }) {
       refetchQueries: [{
         query: POSTS,
       }],
-      // update(cache) {
-      //   cache.writeData({ data: { cartItems: [] } });
-      // }
+      onCompleted () {
+        clearInput()
+      }
     }
   );
-    
-  console.log('data', data)
 
-  return data && data.getAllPosts && !data.getAllPosts.success
-    ? <p data-testid="post">{data.getAllPosts.text}</p>
-    : (
-      <Button variant="contained" color="primary" onClick={submitPost} data-testid="post-button">
+  return  (
+      <Button  type="submit" variant="contained" color="primary" onClick={submitPost} data-testid="post-button">
         Submit
       </Button>
     );
 }
+
+
+// data && data.getAllPosts && !data.getAllPosts.success
+//     ? <p data-testid="post">{data.getAllPosts.text}</p>
+//     :

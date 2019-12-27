@@ -31,7 +31,12 @@ const Input = () => {
     setValues({ ...values, [prop]: event.target.value });
   };
 
+  const clearInput = () => {
+    setValues({ ...values, text: "" });
+  }
+
   return (
+    <form onSubmit={(e) => e.preventDefault()}>
     <Paper className={cls.field}>
         <TextField
           id="text-input"
@@ -40,8 +45,9 @@ const Input = () => {
           className={cls.input}
           placeholder=">>>"
         />
-        <SubmitPost text={values.text}/>
+        <SubmitPost text={values.text} clearInput={clearInput}/>
     </Paper>
+    </form>
   );
 };
 

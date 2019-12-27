@@ -33,7 +33,6 @@ export default function Feed() {
   const cl = useStyles();
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
-  console.log('data', data)
 
   return (
     <Grid className={cl.paper}>
