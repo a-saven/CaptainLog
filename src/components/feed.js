@@ -3,7 +3,7 @@ import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 import { makeStyles } from '@material-ui/core/styles';
 import Post from './post';
-import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
 
 export const POSTS = gql`
     {
@@ -19,26 +19,27 @@ export const POSTS = gql`
 
 const useStyles = makeStyles(theme => ({
   paper: {
-    maxHeight: '80vh',
+    maxHeight: '88vh',
     display: 'flex',
     overflow: "auto",
     flexDirection: 'column-reverse',
     alignItems: 'center',
-    hieght: '100vh'
+    //width: 'inherit',
+    margin: theme.spacing(1),
   },
 }));
 
 export default function Feed() {
   const { loading, error, data } = useQuery(POSTS);
-  const cl = useStyles();
+  const cls = useStyles();
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
   return (
-    <Grid className={cl.paper}>
+    <Box className={cls.paper} xs={12}>
       {data.getAllPosts.map((params) => (
-        <Post params={params} key={params._id}/>
+        <Post params={params} key={params._id} className={cls.post}/>
       ))}
-    </Grid>
+    </Box>
   );
 }

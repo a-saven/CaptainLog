@@ -3,21 +3,21 @@ import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Paper from "@material-ui/core/Paper";
 import SubmitPost from './submitPost';
+import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    display: "flex",
-    flexWrap: "wrap"
-  },
-  input: {
-    width: '97%',
-    margin: theme.spacing(1.5),
-    color: theme.palette.primary.main,
-  },
   field: {
     display: 'flex',
-    direction: 'row',
-    margin: theme.spacing(3),
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  input: {
+    flexGrow: 1,
+    marginRight: theme.spacing(1)
+  },
+  paper: {
+    margin: theme.spacing(1),
+    padding: theme.spacing(1)
   }
 }));
 
@@ -36,8 +36,8 @@ const Input = () => {
   }
 
   return (
-    <form onSubmit={(e) => e.preventDefault()}>
-    <Paper className={cls.field}>
+    <Paper className={cls.paper}>
+      <form onSubmit={(e) => e.preventDefault()} className={cls.field}>
         <TextField
           id="text-input"
           value={values.text}
@@ -46,8 +46,8 @@ const Input = () => {
           placeholder=">>>"
         />
         <SubmitPost text={values.text} clearInput={clearInput}/>
+      </form>
     </Paper>
-    </form>
   );
 };
 

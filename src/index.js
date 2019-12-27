@@ -7,6 +7,7 @@ import Routes from './routes.js';
 import { UserContextProvider } from './components/userContext';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000/',
@@ -15,6 +16,7 @@ const client = new ApolloClient({
 const App = () => {
   return (
     <ApolloProvider client={client}>
+      <CssBaseline/>
       <UserContextProvider>
         <ThemeProvider>
           <Routes />

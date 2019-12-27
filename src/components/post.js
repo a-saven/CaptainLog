@@ -1,54 +1,68 @@
-import React from 'react';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import Avatar from '@material-ui/core/Avatar';
+import React from "react";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
+import Avatar from "@material-ui/core/Avatar";
 import Moment from "react-moment";
 
 const useStyles = makeStyles(theme => ({
   main: {
-    marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(1),
-    width: "90%",
-    height:'100%',
+    width: '100%',
+    padding: theme.spacing(3)
   },
   avatar: {
-    marginTop: theme.spacing(2),
-    marginLeft: theme.spacing(2),
-    marginBottom: theme.spacing(2),
+    margin: theme.spacing(1),
     backgroundColor: theme.palette.primary.main,
-    height: '4.5vh',
-    width: '4.5vh',
+    height: "3vh",
+    width: "3vh"
   },
+  wrap: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  header: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between'
+  },
+  gridItem: {
+    flexGrow: 0
+  }
+
 }));
 
-const Chat = ({params}) => {
+const Chat = ({ params }) => {
   const c = params;
   //console.log('⚽', c)
   const cls = useStyles();
 
-  if (!c) return ( <Paper className={cls.main}></Paper>)
+  if (!c) return <Paper className={cls.main}></Paper>;
+  console.log("c", c);
   return (
-    <Paper className={cls.main} key={c._id}>
-      <Grid container spacing={2}>
-        <Grid item>
-          <Avatar className={cls.avatar} src='images/avatars/chatBot.png' />
-        </Grid>
-        <Grid item xs={12} sm container direction="column" justify="center" >
-          <div>
+    <Paper xs={12} className={cls.main} key={c._id} >
+      <Grid item container spacing={2} className={cls.wrap}>
+          <Grid item className={cls.header}>
+            <Grid item className={cls.gridItem}>
+              <Avatar className={cls.avatar} src="images/avatars/chatBot.png" />
+            </Grid>
+            <Grid item>
+              <p>{c.title || 'Post title'}</p>
+            </Grid>
+            <Typography variant="caption" display="block" gutterBottom>
+            <Moment format="HH:MM:SS D MMM YYYY" unix>
+              {c.createdAt / 1000}
+            </Moment>
+            </Typography>
+          </Grid>
+          <Grid item></Grid>
+          <Grid item>
             {c.text}
-          </div>
-          <div>
-            {c.index}
-          </div>
-          <div>
-            UpdatedAt: <Moment format="D MMM YYYY" unix>{c.createdAt/1000}</Moment> 
-          </div>
-        </Grid>
+          </Grid>
       </Grid>
     </Paper>
-  )
+  );
 };
 
 export default Chat;
