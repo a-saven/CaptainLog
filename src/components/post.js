@@ -39,7 +39,6 @@ const Chat = ({ params }) => {
   const cls = useStyles();
 
   if (!c) return <Paper className={cls.main}></Paper>;
-  console.log("c", c);
   return (
     <Paper xs={12} className={cls.main} key={c._id} >
       <Grid item container spacing={2} className={cls.wrap}>
@@ -56,9 +55,11 @@ const Chat = ({ params }) => {
             </Moment>
             </Typography>
           </Grid>
-          <Grid item></Grid>
-          <Grid item>
+          <Grid container>
             {c.text}
+          </Grid>
+          <Grid container justify="flex-end">
+              <p>#{c.tag || "Tag"}</p>
           </Grid>
       </Grid>
     </Paper>

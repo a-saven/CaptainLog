@@ -5,11 +5,11 @@ import Button from '@material-ui/core/Button';
 import { POSTS } from './feed';
 
 const ADD_POST = gql`
-  mutation addPost($text: String) {
-    addPost(text: $text ) {
+  mutation addPost($text: String, $title: String, $tag: String) {
+    addPost(text: $text, title: $title, tag: $tag ) {
       _id
       text
-      tags
+      tag
       userId
       createdAt
       index
@@ -17,11 +17,12 @@ const ADD_POST = gql`
   }
 `;
 
-export default function SubmitPost({ text, clearInput }) {
+export default function SubmitPost({ text, title, tag, clearInput }) {
+  console.log(text, title, tag)
   const [submitPost, { data }] = useMutation(
     ADD_POST,
     {
-      variables: { text },
+      variables: { text, title, tag },
       refetchQueries: [{
         query: POSTS,
       }],
@@ -42,3 +43,6 @@ export default function SubmitPost({ text, clearInput }) {
 // data && data.getAllPosts && !data.getAllPosts.success
 //     ? <p data-testid="post">{data.getAllPosts.text}</p>
 //     :
+
+//remove iframe
+//remove extension

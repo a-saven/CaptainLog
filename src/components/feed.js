@@ -10,7 +10,8 @@ export const POSTS = gql`
       getAllPosts {
         _id
         text
-        tags
+        title
+        tag
         createdAt
         userId
         index
