@@ -30,7 +30,6 @@ import { UserContext } from './components/userContext';
 export default function Auth() {
   return (
     <Router>
-      <div>
         <Switch>
           <Route path="/login">
             <Login />
@@ -42,7 +41,6 @@ export default function Auth() {
             <Main />
           </PrivateRoute>
         </Switch>
-      </div>
     </Router>
   );
 }

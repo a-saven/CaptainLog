@@ -59,7 +59,7 @@ const Chat = ({ params }) => {
             {c.text}
           </Grid>
           <Grid container justify="flex-end">
-              <p>#{c.tag || "Tag"}</p>
+              <p>{c.tag || "Tag"}</p>
           </Grid>
       </Grid>
     </Paper>
