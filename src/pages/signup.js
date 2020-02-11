@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -14,6 +14,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Copyright from '../components/copyright';
 import { useHistory } from "react-router-dom";
+import gql from 'graphql-tag';
+import { useMutation } from '@apollo/react-hooks';
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -35,9 +37,38 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+const SIGN_UP = gql`
+  mutation signUp ($name: String, $email: String, $password: String) {
+    signUp(name: $name, email: $email, password: $password) {
+      name
+      token
+    }
+  }
+`;
+
 export default function SignUp() {
   const classes = useStyles();
   let history = useHistory();
+
+  const [values, setValues] = useState({
+    name: "",
+    email: "",
+    password: ""
+  })
+
+  const [sUp, { data }] = useMutation(
+    SIGN_UP,
+    {
+      variables: values,
+      onCompleted (data) {
+        console.log(data)
+      }
+    }
+  );
+
+  const handleChange = prop => event => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
   
   return (
     <Container component="main" maxWidth="xs">
@@ -53,13 +84,15 @@ export default function SignUp() {
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
-                autoComplete="fname"
+                autoComplete="name"
                 name="name"
                 variant="outlined"
                 required
                 fullWidth
                 id="name"
                 label="Name"
+                value={values.name}
+                onChange={handleChange("name")}
                 autoFocus
               />
             </Grid>
@@ -72,6 +105,8 @@ export default function SignUp() {
                 label="Email"
                 name="email"
                 autoComplete="email"
+                value={values.email}
+                onChange={handleChange("email")}
               />
             </Grid>
             <Grid item xs={12}>
@@ -84,6 +119,8 @@ export default function SignUp() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                value={values.password}
+                onChange={handleChange("password")}
               />
             </Grid>
             <Grid item xs={12}>
@@ -99,7 +136,10 @@ export default function SignUp() {
             variant="contained"
             color="primary"
             className={classes.submit}
-          >
+            onClick={e => {
+              e.preventDefault();
+              sUp()
+            }}>
             Sign Up
           </Button>
           <Grid container justify="flex-end">
