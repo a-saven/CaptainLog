@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -16,6 +16,7 @@ import Copyright from '../components/copyright';
 import { useHistory } from "react-router-dom";
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/react-hooks';
+import { UserContext } from '../components/userContext';
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -40,7 +41,6 @@ const useStyles = makeStyles(theme => ({
 const SIGN_UP = gql`
   mutation signUp ($name: String, $email: String, $password: String) {
     signUp(name: $name, email: $email, password: $password) {
-      name
       token
     }
   }
@@ -54,13 +54,17 @@ export default function SignUp() {
     name: "",
     email: "",
     password: ""
-  })
+  });
+
+  let { state, dispatch } = useContext(UserContext);
 
   const [sUp, { data }] = useMutation(
     SIGN_UP,
     {
       variables: values,
       onCompleted (data) {
+        dispatch("signup", data )
+        history.push("/");
         console.log(data)
       }
     }

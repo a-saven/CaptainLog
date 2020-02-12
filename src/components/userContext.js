@@ -3,12 +3,9 @@ import React from 'react';
 const UserContext = React.createContext();
 
 let initialState = {
+  id: '',
   name: '',
-  email: '',
   token: '',
-  role: '',
-  password: '',
-  loggedIn: false,
 }
 
 let reducer = (state, action) => {
@@ -16,7 +13,7 @@ let reducer = (state, action) => {
     case "reset":
       return initialState;
     case "login":
-      return { ...state, ...action.payload, loggedIn: true };
+      return { ...state, ...action.payload };
     case "signup":
       return { ...state, ...action.payload };
     case "logout":
