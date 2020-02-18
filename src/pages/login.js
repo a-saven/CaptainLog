@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -15,6 +15,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Copyright from '../components/copyright';
 import { useHistory } from "react-router-dom";
 import { UserContext } from '../components/userContext';
+import { useMutation } from '@apollo/react-hooks';
+import gql from 'graphql-tag';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -47,18 +49,37 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SignInSide() {
+const SIGN_IN = gql`
+  mutation signIn ($email: String, $password: String) {
+    signIn(email: $email, password: $password ) {
+      token
+    }
+  }`;
+
+export default function SignIn() {
   const classes = useStyles();
-  let { state, dispatch } = useContext(UserContext);
   let history = useHistory();
-  const payload = {
-    email: 'email@email.com',
-    password: 'stronk'
-  }
-  const handleLogin = () =>  {
-    dispatch({type: 'login', payload});
-    history.push('/')
-  }
+  let { state, dispatch } = useContext(UserContext);
+
+  const [values, setValues] = useState({
+    email: "",
+    password: ""
+  })
+  
+  const [sIn, { data }] = useMutation(
+    SIGN_IN, {
+      variables: values,
+      onCompleted(data) {
+        dispatch("login", data);
+        history.push("/");
+        sessionStorage.setItem('token', data.signIn.token);
+      }
+    }
+  )
+
+  const handleChange = prop => event => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -83,6 +104,8 @@ export default function SignInSide() {
               name="email"
               autoComplete="email"
               autoFocus
+              value={values.email}
+              onChange={handleChange("email")}
             />
             <TextField
               variant="outlined"
@@ -93,7 +116,9 @@ export default function SignInSide() {
               label="Password"
               type="password"
               id="password"
+              value={values.password}
               autoComplete="current-password"
+              onChange={handleChange("password")}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -105,8 +130,10 @@ export default function SignInSide() {
               variant="contained"
               color="primary"
               className={classes.submit}
-              onClick={handleLogin}
-            >
+              onClick={e => {
+                e.preventDefault();
+                sIn();
+              }}>
               Sign In
             </Button>
             <Grid container>

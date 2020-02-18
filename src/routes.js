@@ -35,11 +35,14 @@ export default function Auth() {
 function PrivateRoute({ children, ...rest }) {
 
   let { state } = useContext(UserContext);
+
+  const token = sessionStorage.getItem('token');
+
   return (
     <Route
       {...rest}
       render={({ location }) =>
-        state.token ? (
+        token ? (
           children
         ) : (
           <Redirect
