@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
 
 }));
 
-const Chat = ({ params }) => {
+const Post = ({ params }) => {
   const c = params;
   //console.log('⚽', c)
   const cls = useStyles();
@@ -66,4 +66,4 @@ const Chat = ({ params }) => {
   );
 };
 
-export default Chat;
+export default Post;
