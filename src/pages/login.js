@@ -71,8 +71,8 @@ export default function SignIn() {
       variables: values,
       onCompleted(data) {
         dispatch("login", data);
-        history.push("/");
         sessionStorage.setItem('token', data.signIn.token);
+        history.push("/");
       }
     }
   )
