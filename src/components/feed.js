@@ -20,7 +20,8 @@ export const POSTS = gql`
 
 const useStyles = makeStyles(theme => ({
   paper: {
-    maxHeight: '88vh',
+    maxHeight: '70vh',
+    height: '100%',
     display: 'flex',
     overflow: "auto",
     flexDirection: 'column-reverse',
