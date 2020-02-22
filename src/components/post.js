@@ -5,6 +5,7 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Avatar from "@material-ui/core/Avatar";
 import Moment from "react-moment";
+import PostMenu from './postMenu';
 
 const useStyles = makeStyles(theme => ({
   main: {
@@ -25,12 +26,20 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   gridItem: {
-    flexGrow: 0
+    flexGrow: 0,
+  },
+  bottomLine: {
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    fontSize: 14,
+  },
+  textArea: {
+    marginTop: theme.spacing(1),
+    marginBottom: theme.spacing(1),
   }
-
 }));
 
 const Post = ({ params }) => {
@@ -47,19 +56,28 @@ const Post = ({ params }) => {
               <Avatar className={cls.avatar} src="images/avatars/chatBot.png" />
             </Grid>
             <Grid item>
-              <p>{c.title || 'Post title'}</p>
+              <Typography variant="subtitle1">
+                <p>{c.title || 'Post title'}</p>
+              </Typography>
             </Grid>
-            <Typography variant="caption" display="block" gutterBottom>
-            <Moment format="HH:MM:SS D MMM YYYY" unix>
-              {c.createdAt / 1000}
-            </Moment>
+            <Grid>
+              <PostMenu />
+            </Grid>
+          </Grid>
+          <Grid container className={cls.textArea}>
+            <Typography variant="body1">
+                {c.text}
             </Typography>
           </Grid>
-          <Grid container>
-            {c.text}
-          </Grid>
-          <Grid container justify="flex-end">
-              <p>{c.tag || "Tag"}</p>
+          <Grid container className={cls.bottomLine}>
+              <Typography variant="caption" display="block" gutterBottom>
+                <Moment format="HH:MM:SS D MMM YYYY" unix>
+                  {c.createdAt / 1000}
+                </Moment>
+              </Typography>
+              <Typography variant="caption" display="block" gutterBottom>
+                {c.tag || "Tag"}   
+              </Typography>
           </Grid>
       </Grid>
     </Paper>

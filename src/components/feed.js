@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
     height: '100%',
     display: 'flex',
     overflow: "auto",
-    flexDirection: 'column-reverse',
+    flexDirection: 'column',
     alignItems: 'center',
     //width: 'inherit',
     margin: theme.spacing(1),
