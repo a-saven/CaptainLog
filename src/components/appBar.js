@@ -107,6 +107,7 @@ export default function PrimarySearchAppBar() {
 
   const handleLogout = () => {
     sessionStorage.removeItem('token');
+    //client.clearStore()
     history.push('/login');
   }
 
