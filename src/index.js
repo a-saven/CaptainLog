@@ -10,7 +10,7 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 const client = new ApolloClient({
-  uri: 'http://captainlog.herokuapp.com:80/',
+  uri: 'https://captainlog.herokuapp.com:80/',
   request: (operation) => {
     const token = sessionStorage.getItem('token')
     operation.setContext({
