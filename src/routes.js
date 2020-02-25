@@ -11,7 +11,7 @@ import Main from './layouts/main';
 
 export default function Auth() {
   return (
-    <Router>
+    <Router basename={`${process.env.PUBLIC_URL}/`}>
         <Switch>
           <Route path="/login">
             <Login />
