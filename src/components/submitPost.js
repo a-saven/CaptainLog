@@ -18,6 +18,7 @@ const ADD_POST = gql`
 `;
 
 export default function SubmitPost({ text, title, tag, clearInput }) {
+  // eslint-disable-next-line
   const [submitPost, { data }] = useMutation(
     ADD_POST,
     {

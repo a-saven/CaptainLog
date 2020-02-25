@@ -1,17 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  Redirect,
-  useHistory,
-  useLocation
+  Redirect
 } from "react-router-dom";
 import SignUp from './pages/signup';
 import Login from './pages/login';
 import Main from './layouts/main';
-import { UserContext } from './components/userContext';
 
 export default function Auth() {
   return (
@@ -33,8 +29,6 @@ export default function Auth() {
 
 
 function PrivateRoute({ children, ...rest }) {
-
-  let { state } = useContext(UserContext);
 
   const token = sessionStorage.getItem('token');
 

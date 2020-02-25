@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Paper from "@material-ui/core/Paper";
 import SubmitPost from './submitPost';
-import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles(theme => ({
   field: {

@@ -55,9 +55,9 @@ export default function SignUp() {
     email: "",
     password: ""
   });
-
+  // eslint-disable-next-line
   let { state, dispatch } = useContext(UserContext);
-
+  // eslint-disable-next-line
   const [sUp, { data }] = useMutation(
     SIGN_UP,
     {

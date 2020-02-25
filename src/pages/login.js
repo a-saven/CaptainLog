@@ -59,13 +59,14 @@ const SIGN_IN = gql`
 export default function SignIn() {
   const classes = useStyles();
   let history = useHistory();
+  // eslint-disable-next-line
   let { state, dispatch } = useContext(UserContext);
 
   const [values, setValues] = useState({
     email: "",
     password: ""
   })
-  
+  // eslint-disable-next-line
   const [sIn, { data }] = useMutation(
     SIGN_IN, {
       variables: values,
