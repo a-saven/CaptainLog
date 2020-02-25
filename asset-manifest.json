@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/CaptainLog/static/css/main.34de6062.chunk.css",
+    "main.js": "/CaptainLog/static/js/main.fe968e43.chunk.js",
+    "main.js.map": "/CaptainLog/static/js/main.fe968e43.chunk.js.map",
+    "runtime-main.js": "/CaptainLog/static/js/runtime-main.c941bd6c.js",
+    "runtime-main.js.map": "/CaptainLog/static/js/runtime-main.c941bd6c.js.map",
+    "static/js/2.1b8e955d.chunk.js": "/CaptainLog/static/js/2.1b8e955d.chunk.js",
+    "static/js/2.1b8e955d.chunk.js.map": "/CaptainLog/static/js/2.1b8e955d.chunk.js.map",
+    "index.html": "/CaptainLog/index.html",
+    "precache-manifest.3675f23ea63b62c97b1db47ca5768fac.js": "/CaptainLog/precache-manifest.3675f23ea63b62c97b1db47ca5768fac.js",
+    "service-worker.js": "/CaptainLog/service-worker.js",
+    "static/css/main.34de6062.chunk.css.map": "/CaptainLog/static/css/main.34de6062.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c941bd6c.js",
+    "static/js/2.1b8e955d.chunk.js",
+    "static/css/main.34de6062.chunk.css",
+    "static/js/main.fe968e43.chunk.js"
+  ]
+}
