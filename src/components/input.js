@@ -26,7 +26,7 @@ const Input = () => {
   const [values, setValues] = useState({text: "", title: "", tag: ""});
 
   useEffect(() => {
-    console.log('effect')
+    //console.log('effect')
   })
 
   const handleChange = prop => event => {

@@ -18,7 +18,6 @@ const ADD_POST = gql`
 `;
 
 export default function SubmitPost({ text, title, tag, clearInput }) {
-  console.log(text, title, tag)
   const [submitPost, { data }] = useMutation(
     ADD_POST,
     {
