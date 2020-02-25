@@ -12,7 +12,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 const client = new ApolloClient({
   uri: 'https://captainlog.herokuapp.com:80/',
   fetchOptions: {
-    mode: 'no-cors',
+    credentials: 'include'
   },
   request: (operation) => {
     const token = sessionStorage.getItem('token')
