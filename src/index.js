@@ -10,7 +10,7 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 const client = new ApolloClient({
-  uri: 'https://captainlog.herokuapp.com:80/graphql',
+  uri: 'https://captainlog.herokuapp.com',
   // fetchOptions: {
   //   credentials: 'include'
   // },
