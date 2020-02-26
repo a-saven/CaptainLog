@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0f2b5ae7fce9ec9b5a7502c29311126c",
+    "revision": "746f752525547f778c38b90bd0449e71",
     "url": "/CaptainLog/index.html"
   },
   {
-    "revision": "1ef07ac5b64d4b2b7aad",
+    "revision": "1ff8619bd8567c90c013",
     "url": "/CaptainLog/static/css/main.34de6062.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/CaptainLog/static/js/2.1b8e955d.chunk.js"
   },
   {
-    "revision": "1ef07ac5b64d4b2b7aad",
-    "url": "/CaptainLog/static/js/main.6c8ece6a.chunk.js"
+    "revision": "1ff8619bd8567c90c013",
+    "url": "/CaptainLog/static/js/main.437d12b0.chunk.js"
   },
   {
     "revision": "5f8a4b0b091dca8b29cc",
