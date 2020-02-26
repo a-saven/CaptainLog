@@ -10,10 +10,10 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 const client = new ApolloClient({
-  uri: 'https://captainlog.herokuapp.com:80/',
-  fetchOptions: {
-    credentials: 'include'
-  },
+  uri: 'https://captainlog.herokuapp.com:80/graphql',
+  // fetchOptions: {
+  //   credentials: 'include'
+  // },
   request: (operation) => {
     const token = sessionStorage.getItem('token')
     operation.setContext({
