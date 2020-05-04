@@ -61,7 +61,7 @@ const Post = ({ params }) => {
               </Typography>
             </Grid>
             <Grid>
-              <PostMenu />
+              <PostMenu id={c._id}/>
             </Grid>
           </Grid>
           <Grid container className={cls.textArea}>

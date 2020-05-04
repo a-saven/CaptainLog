@@ -17,6 +17,7 @@ import { useHistory } from "react-router-dom";
 import { UserContext } from '../components/userContext';
 import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -67,7 +68,7 @@ export default function SignIn() {
     password: ""
   })
   // eslint-disable-next-line
-  const [sIn, { data }] = useMutation(
+  const [sIn, { data, loading, error }] = useMutation(
     SIGN_IN, {
       variables: values,
       onCompleted(data) {
@@ -113,6 +114,8 @@ export default function SignIn() {
               margin="normal"
               required
               fullWidth
+              error={error}
+              helperText={error ? error.message.replace("GraphQL error: ", "") : null}
               name="password"
               label="Password"
               type="password"
@@ -135,7 +138,7 @@ export default function SignIn() {
                 e.preventDefault();
                 sIn();
               }}>
-              Sign In
+              Sign In  {loading && <CircularProgress />}
             </Button>
             <Grid container>
               <Grid item xs>

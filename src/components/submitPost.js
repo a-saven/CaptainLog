@@ -36,10 +36,9 @@ export default function SubmitPost({ text, title, tag, clearInput }) {
   return  (
     <React.Fragment>
       <Button  type="submit" variant="contained" color="primary" onClick={submitPost} data-testid="post-button">
-        {error ? error.message.replace("GraphQL error: ", "") : null}
-        {loading && <CircularProgress />}
-        Submit
+        {error ? error.message.replace("GraphQL error: ", "") : "submit"}
       </Button>
+      {loading && <CircularProgress />}
     </React.Fragment>
     );
 }
