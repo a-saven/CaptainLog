@@ -16,7 +16,8 @@ const useStyles = makeStyles(theme => ({
   },
   paper: {
     margin: theme.spacing(1),
-    padding: theme.spacing(1)
+    padding: theme.spacing(1),
+    position: 'bottom',
   }
 }));
 
@@ -47,6 +48,7 @@ const Input = () => {
           placeholder="Title"
         />
         <TextField
+          multiline={true}
           id="text-input"
           value={values.text}
           onChange={handleChange("text")}

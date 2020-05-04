@@ -3,6 +3,7 @@ import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 import Button from '@material-ui/core/Button';
 import { POSTS } from './feed';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const ADD_POST = gql`
   mutation addPost($text: String, $title: String, $tag: String) {
@@ -19,7 +20,7 @@ const ADD_POST = gql`
 
 export default function SubmitPost({ text, title, tag, clearInput }) {
   // eslint-disable-next-line
-  const [submitPost, { data }] = useMutation(
+  const [submitPost, { loading, error }] = useMutation(
     ADD_POST,
     {
       variables: { text, title, tag },
@@ -31,11 +32,15 @@ export default function SubmitPost({ text, title, tag, clearInput }) {
       }
     }
   );
-
+  
   return  (
+    <React.Fragment>
       <Button  type="submit" variant="contained" color="primary" onClick={submitPost} data-testid="post-button">
+        {error ? error.message.replace("GraphQL error: ", "") : null}
+        {loading && <CircularProgress />}
         Submit
       </Button>
+    </React.Fragment>
     );
 }
 
