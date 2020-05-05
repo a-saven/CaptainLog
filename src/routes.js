@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
   Switch,
   Route,
   Redirect
@@ -11,7 +11,7 @@ import Main from './layouts/main';
 
 export default function Auth() {
   return (
-    <Router basename={`${process.env.PUBLIC_URL}/`}>
+    <Router basename={process.env.PUBLIC_URL}>
         <Switch>
           <Route path="/login">
             <Login />
