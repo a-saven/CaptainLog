@@ -10,8 +10,8 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 const client = new ApolloClient({
-  uri: "http://localhost:4000/",
-  //uri: 'https://captainlog.herokuapp.com',
+  //uri: "http://localhost:4000/",
+  uri: 'https://captainlog.herokuapp.com',
   // fetchOptions: {
   //   credentials: 'include'
   // },
