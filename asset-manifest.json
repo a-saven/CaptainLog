@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/CaptainLog/static/css/main.34de6062.chunk.css",
-    "main.js": "/CaptainLog/static/js/main.4824ee18.chunk.js",
-    "main.js.map": "/CaptainLog/static/js/main.4824ee18.chunk.js.map",
+    "main.js": "/CaptainLog/static/js/main.fd59326c.chunk.js",
+    "main.js.map": "/CaptainLog/static/js/main.fd59326c.chunk.js.map",
     "runtime-main.js": "/CaptainLog/static/js/runtime-main.212627ff.js",
     "runtime-main.js.map": "/CaptainLog/static/js/runtime-main.212627ff.js.map",
     "static/js/2.5d30f9a5.chunk.js": "/CaptainLog/static/js/2.5d30f9a5.chunk.js",
     "static/js/2.5d30f9a5.chunk.js.map": "/CaptainLog/static/js/2.5d30f9a5.chunk.js.map",
     "index.html": "/CaptainLog/index.html",
-    "precache-manifest.3218be75f27357bf07d5fdc9865ba028.js": "/CaptainLog/precache-manifest.3218be75f27357bf07d5fdc9865ba028.js",
+    "precache-manifest.d0d801971ba61d3299c9f502b6164814.js": "/CaptainLog/precache-manifest.d0d801971ba61d3299c9f502b6164814.js",
     "service-worker.js": "/CaptainLog/service-worker.js",
     "static/css/main.34de6062.chunk.css.map": "/CaptainLog/static/css/main.34de6062.chunk.css.map"
   },
@@ -16,6 +16,6 @@
     "static/js/runtime-main.212627ff.js",
     "static/js/2.5d30f9a5.chunk.js",
     "static/css/main.34de6062.chunk.css",
-    "static/js/main.4824ee18.chunk.js"
+    "static/js/main.fd59326c.chunk.js"
   ]
 }
