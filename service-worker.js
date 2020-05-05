@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/CaptainLog/precache-manifest.7c0aec4704a3c303dc9cbf7868c923df.js"
+  "/CaptainLog/precache-manifest.e865ee6b2d342ce2d22861d9b31b5409.js"
 );
 
 self.addEventListener('message', (event) => {
